@@ -50,7 +50,7 @@ public class PartServiceImpl implements PartService {
     @Override
     @Transactional
     public List<Part> list() {
-        currentList = this.partDao.listBooks();
+        currentList = this.partDao.listParts();
         return currentList;
     }
 
@@ -90,7 +90,7 @@ public class PartServiceImpl implements PartService {
     @Transactional
     public List<Part> selectNeeded(){
         currentList.clear();
-        List<Part> list = this.partDao.listBooks();
+        List<Part> list = this.partDao.listParts();
         for(Part part : list) {
             if(part.getNeeded() == 1) currentList.add(part);
         }
@@ -102,7 +102,7 @@ public class PartServiceImpl implements PartService {
     @Transactional
     public List<Part> selectNoNeeded(){
         currentList.clear();
-        List<Part> list = this.partDao.listBooks();
+        List<Part> list = this.partDao.listParts();
         for(Part part : list) {
             if(part.getNeeded() == 0) currentList.add(part);
         }
@@ -113,7 +113,7 @@ public class PartServiceImpl implements PartService {
     @Override
     @Transactional
     public int countOfComputer() {
-        List<Part> list = this.partDao.listBooks();
+        List<Part> list = this.partDao.listParts();
         List<Part> neededList = new ArrayList<Part>();
         for(Part part : list) {
             if(part.getNeeded() == 1) neededList.add(part);
@@ -126,7 +126,7 @@ public class PartServiceImpl implements PartService {
     }
     @Transactional
     public Part getPartByName(String name) {
-        List<Part> list = this.partDao.listBooks();
+        List<Part> list = this.partDao.listParts();
         for(Part part : list) {
             if(part.getName().equals(name)) return part;
         }
@@ -139,7 +139,7 @@ public class PartServiceImpl implements PartService {
     @Override
     @Transactional
     public List<Part> getFullList() {
-        return partDao.listBooks();
+        return partDao.listParts();
     }
 
     @Override

@@ -13,5 +13,5 @@ public interface PartDao {
 
     public Part getPartById(int id);
 
-    public List<Part> listBooks();
+    public List<Part> listParts();
 }
