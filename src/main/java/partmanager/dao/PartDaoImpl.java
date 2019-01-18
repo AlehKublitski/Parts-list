@@ -56,7 +56,7 @@ public class PartDaoImpl implements PartDao {
 
     @Override
     @Transactional
-    public List<Part> listBooks() {
+    public List<Part> listParts() {
         Session session = this.sessionFactory.getCurrentSession();
         List<Part> partList = session.createQuery("from Part").list();
         for(Part part: partList){

@@ -52,8 +52,6 @@
     <a href="<c:url value='/redirect'/>">Вернуться в основной каталог</a>
 </c:if>
 
-<br/>
-<br/>
 
 <h1>Каталог частей для компьютеров</h1>
 <c:if test="${!empty listParts}">
