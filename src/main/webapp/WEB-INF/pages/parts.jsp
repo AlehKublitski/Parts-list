@@ -101,15 +101,13 @@
     <td>После проведения операций с базой данных происходит переход в основной каталог!</td>
 </c:if>
 
-<h1>Выборка детали по значению</h1>
+<h2>Выборка детали по значению</h2>
 <table>
     <tr>
         <td><a href="<c:url value='/parts/selectNeeded'/>">Отобразить только необходимые</a></td>
         <td><a href="<c:url value='/parts/selectNoNeeded'/>">Отобразить только опциональные</a></td>
     </tr>
 </table>
-
-<h1>Добавить новую деталь в каталог</h1>
 
 <c:url var="addAction" value="/parts/add"/>
 <form:form action="${addAction}" commandName="part">
@@ -129,6 +127,8 @@
         </c:if>
         <tr>
             <td>
+
+
                 <form:label path="name">
                     <spring:message text="Наименование"/>
                 </form:label>
@@ -144,7 +144,10 @@
                 </form:label>
             </td>
             <td>
-                <form:input path="needed"/>
+                <form:select path="needed">
+                    <option value="1">Да</option>
+                    <option value="0">Нет</option>
+                </form:select>
             </td>
         </tr>
         <tr>
@@ -159,14 +162,13 @@
         </tr>
         <tr>
             <td colspan="2">
-
                     <input type="submit" value="<spring:message text="Добавить деталь"/>"/>
             </td>
         </tr>
     </table>
 </form:form>
 
-<h1>Поиск детали по названию</h1>
+<h2>Поиск детали по названию</h2>
 <c:url var="searchAction" value="/parts/search"/>
 
 <form:form action="${searchAction}" commandName="part">
